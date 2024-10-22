@@ -1,3 +1,25 @@
 <resources>
     <string name="app_name">Basic Android</string>
+    <string name="act1">Activity 1</string>
+    <string name="act2">Activity 2</string>
+    <string name="calculator">Calculator</string>
+    <string name="fragment1">Fragment 1</string>
+    <string name="fragment2">Fragment 2</string>"
+    <string name="list">ListView</string>
+    <string name="fgmBtn">Start Foreground Music</string>
+    <string name="calcHint">Enter number</string>
+    <string name="addBtn">Calculate the sum of two numbers</string>
+    <string name="invalid">Invalid Input</string>
+    <string name="unbound">Service Not Bound</string>
+    <string name="fragmentA">This is Fragment A</string>
+    <string name="fragmentB">This is Fragment B</string>
+    <string name="changeFragment">Change fragment</string>
+    <string name="placeholder">Placeholder</string>
+    <string name="user_age">Age: %1$d</string>
+    <string name="user_gender">Gender: %1$s</string>
+    <string name="name">Name</string>
+    <string name="age">Age</string>
+    <string name="gender">Gender</string>
+    <string name="add">Add User</string>
+
 </resources>
