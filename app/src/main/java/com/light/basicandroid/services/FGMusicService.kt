@@ -1,4 +1,4 @@
-package com.light.basicandroid
+package com.light.basicandroid.services
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -10,6 +10,8 @@ import android.os.Build
 import android.os.IBinder
 import android.util.Log
 import androidx.core.app.NotificationCompat
+import com.light.basicandroid.R
+import com.light.basicandroid.activities.Activity1
 
 class FGMusicService : Service() {
     private lateinit var mediaPlayer: MediaPlayer

@@ -1,4 +1,4 @@
-package com.light.basicandroid
+package com.light.basicandroid.services
 
 import android.app.Service
 import android.content.Intent

@@ -1,4 +1,4 @@
-package com.light.basicandroid
+package com.light.basicandroid.activities
 
 import android.content.ComponentName
 import android.content.Context
@@ -14,6 +14,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.light.basicandroid.services.CalculatorService
+import com.light.basicandroid.R
 
 class CalculatorActivity : AppCompatActivity() {
     private var calculatorService: CalculatorService? = null

@@ -1,12 +1,15 @@
 <resources>
     <string name="app_name">Basic Android</string>
     <string name="act1">Activity 1</string>
-    <string name="act2">Activity 2</string>
+    <string name="act2">Media Player</string>
     <string name="calculator">Calculator</string>
+    <string name="fragmentActivity1">Fragment Swap</string>
+    <string name="fragmentActivity2">Fragment Add</string>
+    <string name="bgmService">Start BGM Service</string>
     <string name="fragment1">Fragment 1</string>
     <string name="fragment2">Fragment 2</string>"
     <string name="list">ListView</string>
-    <string name="fgmBtn">Start Foreground Music</string>
+    <string name="fgmBtn">Start FGM Service</string>
     <string name="calcHint">Enter number</string>
     <string name="addBtn">Calculate the sum of two numbers</string>
     <string name="invalid">Invalid Input</string>

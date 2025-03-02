@@ -1,24 +1,24 @@
-package com.light.basicandroid
+package com.light.basicandroid.activities
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import com.light.basicandroid.R
+import com.light.basicandroid.fragments.FragmentC
+import com.light.basicandroid.fragments.FragmentD
 
 class FragmentActivity2 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_fragment2)
-        // Add Fragment A to the first container
+
         supportFragmentManager.beginTransaction()
-            .add(R.id.fragmentContainer1, FragmentA())
+            .add(R.id.fragmentContainer1, FragmentC())
             .commit()
 
-        // Add Fragment B to the second container
         supportFragmentManager.beginTransaction()
-            .add(R.id.fragmentContainer2, FragmentB())
+            .add(R.id.fragmentContainer2, FragmentD())
             .commit()
     }
 }

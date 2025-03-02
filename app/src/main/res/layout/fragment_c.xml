@@ -3,15 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.FragmentB">
+    tools:context=".fragments.FragmentC">
+
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/fragmentB"
-        android:textSize="44sp"
-        android:textColor="@color/teal_200"
-        android:gravity="center_horizontal"
-        android:layout_marginTop="50dp"/>
+        android:text="@string/fragment1"
+        android:textSize="30sp"
+        android:gravity="center"/>
 
 </FrameLayout>

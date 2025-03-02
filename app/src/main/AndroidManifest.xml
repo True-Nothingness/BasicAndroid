@@ -17,22 +17,22 @@
         android:theme="@style/Theme.BasicAndroid"
         tools:targetApi="31">
         <activity
-            android:name=".FragmentActivity2"
+            android:name=".activities.FragmentActivity2"
             android:exported="false" />
         <activity
-            android:name=".ListViewActivity"
+            android:name=".activities.ListViewActivity"
             android:exported="false" />
         <activity
-            android:name=".FragmentActivity"
+            android:name=".activities.FragmentActivity"
             android:exported="false" />
         <activity
-            android:name=".CalculatorActivity"
+            android:name=".activities.CalculatorActivity"
             android:exported="false" />
         <activity
-            android:name=".Activity2"
+            android:name=".activities.Activity2"
             android:exported="false" />
         <activity
-            android:name=".Activity1"
+            android:name=".activities.Activity1"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -41,10 +41,10 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".CalculatorService" />
-        <service android:name=".BGMusicService" />
+        <service android:name=".services.CalculatorService" />
+        <service android:name=".services.BGMusicService" />
         <service
-            android:name=".FGMusicService"
+            android:name=".services.FGMusicService"
             android:foregroundServiceType="mediaPlayback" />
     </application>
 

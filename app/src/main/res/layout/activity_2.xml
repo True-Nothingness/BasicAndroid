@@ -5,29 +5,32 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity2">
+    tools:context=".activities.Activity2">
 
-    <TextView
-        android:id="@+id/act2TV"
+    <Button
+        android:id="@+id/bgmBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
-        android:text="@string/act2"
-        android:textColor="@color/teal_200"
-        android:textSize="50sp"
+        android:layout_marginTop="156dp"
+        android:text="@string/bgmService"
+        android:textSize="30sp"
+        android:backgroundTint="@color/teal_200"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageButton
+    <Button
         android:id="@+id/fgmBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="112dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/act2TV"
-        app:srcCompat="@drawable/ic_music_note"
+        android:layout_marginTop="360dp"
         android:backgroundTint="@color/teal_200"
-        android:contentDescription="@string/fgmBtn"/>
+        android:text="@string/fgmBtn"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

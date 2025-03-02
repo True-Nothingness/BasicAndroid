@@ -1,22 +1,32 @@
-package com.light.basicandroid
+package com.light.basicandroid.activities
 
-import android.app.NotificationChannel
-import android.app.NotificationManager
+import android.content.BroadcastReceiver
+import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.net.ConnectivityManager
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.light.basicandroid.services.FGMusicService
+import com.light.basicandroid.NetworkChangeReceiver
+import com.light.basicandroid.R
+import com.light.basicandroid.services.BGMusicService
 
 class Activity2 : AppCompatActivity() {
     private lateinit var networkChangeReceiver: NetworkChangeReceiver
+    private val closeAppReceiver = object : BroadcastReceiver() {
+        override fun onReceive(context: Context?, intent: Intent?) {
+            finishAffinity()
+        }
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -26,22 +36,31 @@ class Activity2 : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        val act2TV: TextView = findViewById(R.id.act2TV)
-        val fgmBtn: ImageButton = findViewById(R.id.fgmBtn)
+        val bgmBtn: Button = findViewById(R.id.bgmBtn)
+        val fgmBtn: Button = findViewById(R.id.fgmBtn)
         Log.d("Activity2", "onCreate")
         val bundle = intent.extras
         val s:String? = bundle!!.getString("act1")
         Log.d("Message", s.toString())
-        act2TV.setOnClickListener {
-            startActivity(Intent(this, CalculatorActivity::class.java))
+        bgmBtn.setOnClickListener {
+            stopService(Intent(this, FGMusicService::class.java))
+            startService(Intent(this, BGMusicService::class.java))
         }
         fgmBtn.setOnClickListener {
+            stopService(Intent(this, BGMusicService::class.java))
             startService(Intent(this, FGMusicService::class.java))
         }
         networkChangeReceiver = NetworkChangeReceiver()
 
         val intentFilter = IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION)
         registerReceiver(networkChangeReceiver, intentFilter)
+        val filter = IntentFilter("com.light.basicandroid.CLOSE_APP")
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) { // API 34+
+            registerReceiver(closeAppReceiver, filter, Context.RECEIVER_NOT_EXPORTED)
+        } else {
+            @Suppress("UnspecifiedRegisterReceiverFlag")
+            registerReceiver(closeAppReceiver, filter) // Use older method for API 24-33
+        }
     }
     override fun onStart() {
         super.onStart()
@@ -62,6 +81,7 @@ class Activity2 : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         unregisterReceiver(networkChangeReceiver)
+        unregisterReceiver(closeAppReceiver)
         Log.d("Activity2", "onDestroy");
     }
     override fun onRestart() {

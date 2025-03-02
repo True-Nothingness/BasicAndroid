@@ -1,10 +1,11 @@
-package com.light.basicandroid
+package com.light.basicandroid.services
 
 import android.app.Service
 import android.content.Intent
 import android.media.MediaPlayer
 import android.os.IBinder
 import android.util.Log
+import com.light.basicandroid.R
 
 class BGMusicService : Service() {
     private lateinit var mediaPlayer: MediaPlayer
@@ -14,10 +15,12 @@ class BGMusicService : Service() {
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        stopService(Intent(this, FGMusicService::class.java))
         mediaPlayer = MediaPlayer.create(this, R.raw.seisyun_complex)
         mediaPlayer.isLooping = true
         mediaPlayer.start()
+        Log.d("BGMusicService", "Service starting - closing app")
+        val closeAppIntent = Intent("com.light.basicandroid.CLOSE_APP")
+        sendBroadcast(closeAppIntent)
         return START_STICKY
     }
     override fun onDestroy() {

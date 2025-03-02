@@ -1,4 +1,4 @@
-package com.light.basicandroid
+package com.light.basicandroid.activities
 
 import android.content.Intent
 import android.content.IntentFilter
@@ -10,6 +10,9 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.light.basicandroid.services.BGMusicService
+import com.light.basicandroid.NetworkChangeReceiver
+import com.light.basicandroid.R
 
 class Activity1 : AppCompatActivity() {
     private lateinit var networkChangeReceiver: NetworkChangeReceiver
@@ -28,29 +31,23 @@ class Activity1 : AppCompatActivity() {
         val act1TV4: TextView = findViewById(R.id.act1TV4)
         val act1TV5: TextView = findViewById(R.id.act1TV5)
         Log.d("Activity1", "onCreate")
-        startService(Intent(this, BGMusicService::class.java))
         val bundle = Bundle()
         bundle.putString("act1","From Activity1")
         val intent = Intent(this, Activity2::class.java)
         intent.putExtras(bundle)
         act1TV1.setOnClickListener {
-            stopService(Intent(this, BGMusicService::class.java))
             startActivity(intent)
         }
         act1TV2.setOnClickListener {
-            stopService(Intent(this, BGMusicService::class.java))
             startActivity(Intent(this, CalculatorActivity::class.java))
         }
         act1TV3.setOnClickListener {
-            stopService(Intent(this, BGMusicService::class.java))
             startActivity(Intent(this, FragmentActivity::class.java))
         }
         act1TV4.setOnClickListener {
-            stopService(Intent(this, BGMusicService::class.java))
             startActivity(Intent(this, ListViewActivity::class.java))
         }
         act1TV5.setOnClickListener {
-            stopService(Intent(this, BGMusicService::class.java))
             startActivity(Intent(this, FragmentActivity2::class.java))
         }
         networkChangeReceiver = NetworkChangeReceiver()
@@ -81,7 +78,6 @@ class Activity1 : AppCompatActivity() {
     }
     override fun onRestart() {
         super.onRestart()
-        startService(Intent(this, BGMusicService::class.java))
         Log.d("Activity1", "onRestart")
     }
 }
